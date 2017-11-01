@@ -1,0 +1,178 @@
+﻿@model CharlieEDogs.Models.Entities.Cachorro
+
+@{
+    ViewBag.Title = "Checkout";
+    Layout = "~/Views/Shared/_LayoutMaster.cshtml";
+}
+
+<script type="text/javascript">
+    var data = @Html.Raw(Json.Encode(Model));
+</script>
+
+<script type="text/javascript">
+    function fMasc(objeto,mascara) {
+        obj=objeto
+        masc=mascara
+        setTimeout("fMascEx()",1)
+    }
+    function fMascEx() {
+        obj.value=masc(obj.value)
+    }
+    function mCPF(cpf){
+        cpf=cpf.replace(/\D/g,"")
+        cpf=cpf.replace(/(\d{3})(\d)/,"$1.$2")
+        cpf=cpf.replace(/(\d{3})(\d)/,"$1.$2")
+        cpf=cpf.replace(/(\d{3})(\d{1,2})$/,"$1-$2")
+        return cpf
+    }
+    function mCEP(cep){
+        cep=cep.replace(/\D/g,"")
+        cep=cep.replace(/^(\d{2})(\d)/,"$1.$2")
+        cep=cep.replace(/\.(\d{3})(\d)/,".$1-$2")
+        return cep
+    }
+    function mNum(num){
+        num=num.replace(/\D/g,"")
+        return num
+    }
+</script>
+
+<div ng-controller="CheckoutController">
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+                    <img src="~/Theme/img/logo.png" alt="charlieanddog" class="img-responsive" />
+                </div>
+                <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
+                    <h1>Checkout</h1>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="row">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3>Eba! Eu vou ter um novo lar!</h3>
+                    </div>
+                    @using (@Html.BeginForm("InserirCarrinho", "Home", FormMethod.Post))
+                    {
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 ">
+                                    <div class="row">
+                                        <div class="fancybox">
+                                            <div class="box-cachorro">
+                                                <div id="foto">
+                                                    <img src="../{{info.Foto}}" class="img-responsive center-block" alt="{{info.Nome}}" />
+                                                </div>
+                                            </div>
+                                            <div class="info center-block">
+                                                <div class="text-capitalize text-left titulo">
+                                                    {{info.Nome}}
+                                                </div>
+                                                <div class="preco-idade text-right">
+                                                    <div><strong>R${{info.Preco}}</strong></div>
+                                                    <div>{{info.Idade}} ano(s)</div>
+                                                </div>
+                                                <input type="hidden" name="idcachorro" id="idcachorro" value="{{info.IdCachorro}}" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="row form-group">
+                                        <input type="number" name="qtd" id="qtd" value="1" min="1" class="center-block form-control" style="width:50%" />
+                                    </div>
+                                    <div class=" row form-group center-button">
+                                        <button type="submit" class="btn btn-primary">Comprar</button>
+                                        <a href="@Href("~/")" class="btn btn-danger"> Cancelar</a>
+                                    </div>
+
+                                </div>
+                                <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 ">
+
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <h4 class="text-capitalize">comprador</h4>
+                                        </div>
+                                        <div class="panel-body">
+                                            <div class="row-fluid">
+                                                <div class="form-group">
+                                                    <input type="text" name="nome" placeholder="Nome" minlength="3" maxlength="250"
+                                                           class="center-block form-control" required />
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                                    <div class="form-group">
+                                                        <input type="text" name="cpf" placeholder="CPF" maxlength="14"
+                                                               class="center-block form-control" onkeydown="javascript: fMasc( this, mCPF );" required />
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-8 col-md-8 col-sm-6 col-xs-12">
+                                                    <div class="form-group">
+                                                        <input type="email" name="email" placeholder="E-mail" maxlength="250"
+                                                               class="center-block form-control" required />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <h4 class="text-capitalize">entrega</h4>
+                                        </div>
+                                        <div class="panel-body">
+                                            <div class="form-group">
+                                                <input type="text" name="endereco" placeholder="Rua" maxlength="512"
+                                                       class="center-block form-control" required />
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                                    <div class="form-group">
+                                                        <input type="text" name="numero" placeholder="Número" maxlength="5"
+                                                               class="center-block form-control" required onkeydown="javascript: fMasc( this, mNum );" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-8 col-md-8 col-sm-6 col-xs-12">
+                                                    <div class="form-group">
+                                                        <input type="text" name="complemento" placeholder="Complemento" maxlength="250"
+                                                               class="center-block form-control" />
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-lg-8 col-md-8 col-sm-6 col-xs-12">
+                                                    <div class="form-group">
+                                                        <input type="text" name="bairro" placeholder="Bairro" maxlength="512"
+                                                               class="center-block form-control" required />
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                                    <div class="form-group">
+                                                        <input type="text" name="CEP" placeholder="CEP" maxlength="10"
+                                                               class="center-block form-control" onkeydown="javascript: fMasc( this, mCEP );" required />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="text" name="cidade" placeholder="Cidade" maxlength="250"
+                                                       class="center-block form-control" required />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer></footer>
+</div>

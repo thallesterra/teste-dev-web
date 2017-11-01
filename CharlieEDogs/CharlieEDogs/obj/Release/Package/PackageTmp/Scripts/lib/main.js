@@ -1,0 +1,1 @@
+﻿angular.module('charliedog', ['minhasDiretivas', 'ngAnimate']);

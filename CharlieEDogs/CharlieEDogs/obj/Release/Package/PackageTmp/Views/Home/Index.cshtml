@@ -1,0 +1,71 @@
+﻿@model CharlieEDogs.Models.Entities.Cachorro
+
+@{
+    ViewBag.Title = "Charlie & Dog";
+    Layout = "~/Views/Shared/_LayoutMaster.cshtml";
+}
+
+<script type="text/javascript">
+    function InserirCarrinho(id) {
+        var t = id;
+    }
+</script>
+
+<div ng-controller="FotosController">
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+                    <img src="~/Theme/img/logo.png" alt="charlieanddog" class="img-responsive" />
+                </div>
+                <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
+                    <div class="input-group">
+                        <input type="text" placeholder="Buscar por.." class=" form-control input-lg" ng-model="filtro"
+                               ng-model-options="{ debounce: 500 }" />
+
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-default btn-lg btnProcurar">
+                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                            </button>
+                        </span>
+                    </div><!-- /input-group -->
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="jumbotron">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 painel-animado" ng-repeat="info in infos | filter:filtro">
+                        <meu-painel nome="{{info.Nome}}" idade="{{info.Idade}}" foto="{{info.Foto}}" preco="{{info.Preco}}"
+                                    idcachorro="{{info.IdCachorro}}" >
+
+                        </meu-painel>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer ng-controller="FooterController">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                    <ul class="list-group">
+                        <li class="list-group-item" ng-repeat="porte in portes"><a href="#">{{porte.tipo}}</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                    <ul class="list-group">
+                        <li class="list-group-item" ng-repeat="faixa in precos"><a href="#">{{faixa.faixa}}</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 text-right">
+                    <img src="~/Theme/img/logo-rodape.png" alt="charlieanddog" />
+                    <p>{{contato.telefone}}</p>
+                    <p><a>{{contato.email}}</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>

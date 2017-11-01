@@ -1,0 +1,155 @@
+﻿@import "variaveis";
+@import "mixin";
+
+header{
+    border-bottom: 1px solid $amarelo;
+	padding: 20px 0;
+
+    .input-lg{
+        border-color: $azul;
+        border-radius: 0px;
+        margin-top:19px;
+        height:2em;
+        font-size: 2em;
+    }
+
+    .btnProcurar{
+        font-size:2.72rem;
+        margin-top: 18px;
+        color:$branco;
+        background:$azul;
+    }
+
+    .btnProcurar:hover{
+        font-size:2.2em;
+        margin-top: 18px;
+        color:$preto;
+        background:$amarelo;
+    }
+}
+
+main{
+    
+    .jumbotron{
+        margin-bottom: 0;
+    }
+
+    .panel{
+        margin-top:30px;
+    }   
+
+    .center-button{
+        display: flex;
+        justify-content: center;
+        button, a{
+            margin:5px;
+        }
+    }
+    .fancybox{
+        text-decoration: none;
+        color:$preto;
+        .box-cachorro{
+            position: relative;
+            
+            img{
+                opacity: .7;
+	            @include transition(all, 0.5s, ease-in-out);
+                width:300px;
+                height:300px;
+            }
+
+            .btnLevar{
+                font-family: 'Amatic SC', cursive, sans-serif;
+                font-weight:bold;
+                opacity: 0;
+                width: 80%;
+                text-align:center;
+                text-decoration: none;
+	            background-color: $amarelo;
+	            color: $preto;
+                position:absolute;
+                bottom: 8px;
+                left: 9%;
+                font-size:2em;
+                padding: 5px 0;
+                @include transition(bottom, 0.9s, ease-in-out);
+            }
+        
+        }
+
+        .box-cachorro:hover{
+            
+            img{
+                opacity: 1;
+                @include transition(all, 0.5s, ease-in-out);
+            }
+
+            .btnLevar{
+                font-weight:bold;
+                font-family: 'Amatic SC', cursive, sans-serif;
+                opacity: 1;
+                width: 80%;
+                text-align:center;
+                text-decoration: none;
+	            background-color: $amarelo;
+	            color: $preto;
+                position:absolute;
+                bottom: 8px;
+                left: 9%;
+                @include transition(bottom, 0.9s, ease-in-out);
+            }
+        }
+
+        .painel-animado{
+            -moz-transition:transform 0.8s;
+            -webkit-transition:transform 0.8s;
+            -ms-transition:transform 0.8s;
+            -o-transition:transform 0.8s;
+            transition:transform 0.8s;
+        }
+        .painel-animado.ng-leave-active {
+          -moz-transform: scale(0.1);
+          -webkit-transform: scale(0.1);
+          -ms-transform: scale(0.1);
+          -o-transform: scale(0.1);
+          transform: scale(0.1);
+        }
+
+        .info, .info:hover{
+            text-decoration: none;
+            color:$preto;
+            max-width: 300px;
+            .titulo{
+                font-family: 'Amatic SC', cursive, sans-serif;
+                font-size:2em;
+                float:left;
+                font-weight:bold;
+            }
+            .preco-idade{
+                float: right;
+            }
+        }
+    }   
+}
+
+footer{
+    border-top: 1px solid $amarelo;
+	padding: 20px 0;
+    
+    p{
+        margin-bottom:0px;
+    }
+    .list-group-item{
+        border: none;
+        padding: 5px;
+
+        a{
+            color:$preto;
+            text-decoration:underline;
+            font-size:0.9em;
+        }
+    
+        
+    }
+
+}

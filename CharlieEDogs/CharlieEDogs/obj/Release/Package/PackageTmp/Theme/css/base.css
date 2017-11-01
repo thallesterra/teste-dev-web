@@ -1,0 +1,125 @@
+﻿header {
+  border-bottom: 1px solid #FC0;
+  padding: 20px 0; }
+  header .input-lg {
+    border-color: #00AEEF;
+    border-radius: 0px;
+    margin-top: 19px;
+    height: 2em;
+    font-size: 2em; }
+  header .btnProcurar {
+    font-size: 2.72rem;
+    margin-top: 18px;
+    color: #FFF;
+    background: #00AEEF; }
+  header .btnProcurar:hover {
+    font-size: 2.2em;
+    margin-top: 18px;
+    color: #000;
+    background: #FC0; }
+
+main .jumbotron {
+  margin-bottom: 0; }
+
+main .panel {
+  margin-top: 30px; }
+
+main .center-button {
+  display: flex;
+  justify-content: center; }
+  main .center-button button, main .center-button a {
+    margin: 5px; }
+
+main .fancybox {
+  text-decoration: none;
+  color: #000; }
+  main .fancybox .box-cachorro {
+    position: relative; }
+    main .fancybox .box-cachorro img {
+      opacity: .7;
+      -webkit-transition: all 0.5s ease-in-out;
+      -moz-transition: all 0.5s ease-in-out;
+      -ms-transition: all 0.5s ease-in-out;
+      -o-transition: all 0.5s ease-in-out;
+      transition: all 0.5s ease-in-out;
+      width: 300px;
+      height: 300px; }
+    main .fancybox .box-cachorro .btnLevar {
+      font-family: 'Amatic SC', cursive, sans-serif;
+      font-weight: bold;
+      opacity: 0;
+      width: 80%;
+      text-align: center;
+      text-decoration: none;
+      background-color: #FC0;
+      color: #000;
+      position: absolute;
+      bottom: 8px;
+      left: 9%;
+      font-size: 2em;
+      padding: 5px 0;
+      -webkit-transition: bottom 0.9s ease-in-out;
+      -moz-transition: bottom 0.9s ease-in-out;
+      -ms-transition: bottom 0.9s ease-in-out;
+      -o-transition: bottom 0.9s ease-in-out;
+      transition: bottom 0.9s ease-in-out; }
+  main .fancybox .box-cachorro:hover img {
+    opacity: 1;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out; }
+  main .fancybox .box-cachorro:hover .btnLevar {
+    font-weight: bold;
+    font-family: 'Amatic SC', cursive, sans-serif;
+    opacity: 1;
+    width: 80%;
+    text-align: center;
+    text-decoration: none;
+    background-color: #FC0;
+    color: #000;
+    position: absolute;
+    bottom: 8px;
+    left: 9%;
+    -webkit-transition: bottom 0.9s ease-in-out;
+    -moz-transition: bottom 0.9s ease-in-out;
+    -ms-transition: bottom 0.9s ease-in-out;
+    -o-transition: bottom 0.9s ease-in-out;
+    transition: bottom 0.9s ease-in-out; }
+  main .fancybox .painel-animado {
+    -moz-transition: transform 0.8s;
+    -webkit-transition: transform 0.8s;
+    -ms-transition: transform 0.8s;
+    -o-transition: transform 0.8s;
+    transition: transform 0.8s; }
+  main .fancybox .painel-animado.ng-leave-active {
+    -moz-transform: scale(0.1);
+    -webkit-transform: scale(0.1);
+    -ms-transform: scale(0.1);
+    -o-transform: scale(0.1);
+    transform: scale(0.1); }
+  main .fancybox .info, main .fancybox .info:hover {
+    text-decoration: none;
+    color: #000;
+    max-width: 300px; }
+    main .fancybox .info .titulo, main .fancybox .info:hover .titulo {
+      font-family: 'Amatic SC', cursive, sans-serif;
+      font-size: 2em;
+      float: left;
+      font-weight: bold; }
+    main .fancybox .info .preco-idade, main .fancybox .info:hover .preco-idade {
+      float: right; }
+
+footer {
+  border-top: 1px solid #FC0;
+  padding: 20px 0; }
+  footer p {
+    margin-bottom: 0px; }
+  footer .list-group-item {
+    border: none;
+    padding: 5px; }
+    footer .list-group-item a {
+      color: #000;
+      text-decoration: underline;
+      font-size: 0.9em; }
